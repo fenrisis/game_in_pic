@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Guess the Picture</h2>
+    <img src="{{ url_for('static', filename='images/picture.jpg') }}" alt="Picture">
+    <form method="POST" action="{{ url_for('play') }}">
+        <input type="text" name="user_input" placeholder="Enter your answer">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
