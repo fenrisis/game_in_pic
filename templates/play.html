@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Guess the Picture</h2>
-    <img src="{{ url_for('static', filename='images/picture.jpg') }}" alt="Picture">
-    <form method="POST" action="{{ url_for('play') }}">
-        <input type="text" name="user_input" placeholder="Enter your answer">
-        <input type="submit" value="Submit">
-    </form>
+  <h1>Play Game</h1>
+  <img src="{{ url_for('static', filename='images/game_image.jpg') }}" alt="Game Image">
+  <form id="game-form" action="{{ url_for('play') }}" method="POST">
+    <input type="text" name="user_input" id="user-input" placeholder="Enter your answer">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="{{ url_for('static', filename='js/game.js') }}"></script>
 {% endblock %}
+
