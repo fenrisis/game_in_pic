@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quizzes</title>
+</head>
+<body>
+    <h1>Quizzes</h1>
+    <ul>
+        {% for quiz in quizzes %}
+            <li><a href="{{ url_for('quiz', quiz_id=quiz.id) }}">{{ quiz.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% if current_user.is_authenticated %}
+        <p>Welcome, {{ current_user.username }}!</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">Login</a> or <a href="{{ url_for('register') }}">Register</a> to participate in quizzes.</p>
+    {% endif %}
+</body>
+</html>
